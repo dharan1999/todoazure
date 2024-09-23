@@ -3,17 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- In index.html -->
-    <link rel="stylesheet" href="/styles.css">
-
+    <link rel="stylesheet" href="styles.css">
     <title>Azure Storage App</title>
 </head>
 <body>
-    <h1>Upload Image</h1>
-    <form id="uploadForm" enctype="multipart/form-data">
-        <input type="file" name="file" id="fileInput" required>
-        <button type="submit">Upload</button>
-    </form>
+    <header>
+        <h1>Azure Storage App</h1>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <h3>Upload Your Image</h3>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" name="file" id="fileInput" required>
+                <button type="submit">Upload</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created by Dharan</p>
+    </footer>
 
     <script>
         const form = document.getElementById('uploadForm');
@@ -24,7 +34,7 @@
             formData.append('file', fileInput);
 
             try {
-                const response = await fetch('http://40.88.35.73:3000/upload', {
+                const response = await fetch('http://localhost:3000/upload', {
                     method: 'POST',
                     body: formData
                 });
